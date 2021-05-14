@@ -16,20 +16,24 @@ export const Employees = () => {
     return employeeHtml
 }
 
-//added eventlistener
-// const orders = getOrders()
+//added eventListener: {name} sold {number} products.
+const orders = getOrders()
 
-// document.addEventListener(
-//         "click", clickEvent => {
-//             for (const emloyee of employees) {
-//                 const numOfOrderArr = orders.filter(order => {
-//                         return order.employeeId === employee.id
-//                     }
+for (const employee of employees) {
+    employee.ordernum = 0
+    for (const order of orders) {
+        if (employee.id === order.employeeId) {
+            employee.ordernum += 1
+        }
+    }
+}
 
-//                     if (clickEvent.target.id === `${employee.id}`) {
-
-//                     )
-
-
-//                 }
-//             )
+document.addEventListener(
+    "click", clickEvent => {
+        for (const employee of employees) {
+            if (clickEvent.target.id === `employee--${employee.id}`) {
+                window.alert(`${employee.name} sold ${employee.ordernum} products.`)
+            }
+        }
+    }
+)
