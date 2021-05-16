@@ -25,10 +25,10 @@ loop through employees, 先给每个 employee object 添加一个ordernum key, �
 由此找到每个 employee 的订单量。
 */
 for (const employee of employees) {
-    employee.ordernum = 0
+    employee.numOfOrder = 0
     for (const order of orders) {
         if (employee.id === order.employeeId) {
-            employee.ordernum += 1
+            employee.numOfOrder += 1
         }
     }
 }
@@ -37,7 +37,7 @@ document.addEventListener(
     "click", clickEvent => {
         for (const employee of employees) {
             if (clickEvent.target.id === `employee--${employee.id}`) {
-                window.alert(`${employee.name} sold ${employee.ordernum} products.`)
+                window.alert(`${employee.name} sold ${employee.numOfOrder} products.`)
             }
         }
     }
