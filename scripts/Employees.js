@@ -21,7 +21,7 @@ const orders = getOrders()
 
 /* 
 loop through employees, 先给每个 employee object 添加一个ordernum key, 并设值为0；
-然后用每一个 employee 去 loop through orders, 每找到一个matching order， 就employee.ordernum += 1，
+然后用每一个 employee 去 loop through orders, 每找到一个matching order， 就employee.numOfOrder += 1，
 由此找到每个 employee 的订单量。
 */
 for (const employee of employees) {
